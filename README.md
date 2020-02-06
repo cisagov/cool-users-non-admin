@@ -20,15 +20,23 @@ TBD
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
 | audit_account_id | The ID of the Audit account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| audit_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Audit account | string | `ProvisionAccount` | no |
 | aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
 | dns_account_id | The ID of the DNS account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| dns_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the DNS account | string | `ProvisionAccount` | no |
 | images_account_id | The ID of the Images account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| images_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Images account | string | `ProvisionAccount` | no |
 | logarchive_account_id | The ID of the Log Archive account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| logarchive_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Log Archive account | string | `ProvisionAccount` | no |
 | master_account_id | The ID of the Master account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| master_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Master account | string | `ProvisionAccount` | no |
 | sharedservices_account_id | The ID of the Shared Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| sharedservices_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account | string | `ProvisionAccount` | no |
 | tags | Tags to apply to all AWS resources Terraform Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| terraform_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Terraform account | string | `ProvisionAccount` | no |
 | users | A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { 'firstname1.lastname1' = { 'roles' = [ 'financial_audit', 'security_audit' ] },  'firstname2.lastname2' = { 'roles' = [ 'security_audit' ] } } | map | | yes |
 | users_account_id | The ID of the Users account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| users_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Users account | string | `ProvisionAccount` | no |
 
 ## Outputs ##
 

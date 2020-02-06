@@ -48,8 +48,52 @@ variable "users_account_id" {
 # These parameters have reasonable defaults.
 # ------------------------------------------------------------------------------
 
+variable "audit_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Audit account."
+  default     = "ProvisionAccount"
+}
+
+variable "aws_region" {
+  description = "The AWS region where the non-global resources are to be provisioned (e.g. \"us-east-1\")."
+  default     = "us-east-1"
+}
+
+variable "dns_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the DNS account."
+  default     = "ProvisionAccount"
+}
+variable "images_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Images account."
+  default     = "ProvisionAccount"
+}
+
+variable "logarchive_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Log Archive account."
+  default     = "ProvisionAccount"
+}
+
+variable "master_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Master account."
+  default     = "ProvisionAccount"
+}
+
+variable "sharedservices_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account."
+  default     = "ProvisionAccount"
+}
+
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to all AWS resources created"
   default     = {}
+}
+
+variable "terraform_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Terraform account."
+  default     = "ProvisionAccount"
+}
+
+variable "users_provisionaccount_role_name" {
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Users account."
+  default     = "ProvisionAccount"
 }
