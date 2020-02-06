@@ -4,16 +4,42 @@
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
 
-variable "aws_region" {
-  description = "The AWS region to deploy into (e.g. us-east-1)"
+variable "audit_account_id" {
+  description = "The ID of the Audit account, which contains a role that can be assumed to provision AWS resources in that account."
 }
 
-variable "aws_availability_zone" {
-  description = "The AWS availability zone to deploy into (e.g. a, b, c, etc.)"
+variable "dns_account_id" {
+  description = "The ID of the DNS account, which contains a role that can be assumed to provision AWS resources in that account."
 }
 
-variable "subnet_id" {
-  description = "The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0)"
+variable "images_account_id" {
+  description = "The ID of the Images account, which contains a role that can be assumed to provision AWS resources in that account."
+}
+
+variable "logarchive_account_id" {
+  description = "The ID of the Log Archive account, which contains a role that can be assumed to provision AWS resources in that account."
+}
+
+variable "master_account_id" {
+  description = "The ID of the Master account, which contains a role that can be assumed to provision AWS resources in that account."
+}
+
+variable "sharedservices_account_id" {
+  description = "The ID of the Shared Services account, which contains a role that can be assumed to provision AWS resources in that account."
+}
+
+variable "terraform_account_id" {
+  description = "The ID of the Terraform account, which contains a role that can be assumed to provision AWS resources in that account."
+}
+
+variable "users" {
+  # Currently-defined roles: financial_audit, security_audit
+  description = "A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { 'firstname1.lastname1' = { 'roles' = [ 'financial_audit', 'security_audit' ] },  'firstname2.lastname2' = { 'roles' = [ 'security_audit' ] } }"
+  type        = map
+}
+
+variable "users_account_id" {
+  description = "The ID of the Users account, which contains a role that can be assumed to provision AWS resources in that account."
 }
 
 # ------------------------------------------------------------------------------

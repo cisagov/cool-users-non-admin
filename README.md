@@ -19,8 +19,16 @@ TBD
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
+| audit_account_id | The ID of the Audit account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
-| tags | Tags to apply to all AWS resources created | map(string) | `{}` | no |
+| dns_account_id | The ID of the DNS account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| images_account_id | The ID of the Images account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| logarchive_account_id | The ID of the Log Archive account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| master_account_id | The ID of the Master account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| sharedservices_account_id | The ID of the Shared Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| tags | Tags to apply to all AWS resources Terraform Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| users | A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { 'firstname1.lastname1' = { 'roles' = [ 'financial_audit', 'security_audit' ] },  'firstname2.lastname2' = { 'roles' = [ 'security_audit' ] } } | map | | yes |
+| users_account_id | The ID of the Users account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 
 ## Outputs ##
 
