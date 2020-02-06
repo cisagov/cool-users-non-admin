@@ -24,12 +24,14 @@ TBD
 | aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
 | dns_account_id | The ID of the DNS account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | dns_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the DNS account | string | `ProvisionAccount` | no |
+| financial_audit_users_group_name | The name of the group to be created for financial audit users | string | `financial_auditors` | no |
 | images_account_id | The ID of the Images account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | images_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Images account | string | `ProvisionAccount` | no |
 | logarchive_account_id | The ID of the Log Archive account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | logarchive_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Log Archive account | string | `ProvisionAccount` | no |
 | master_account_id | The ID of the Master account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | master_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Master account | string | `ProvisionAccount` | no |
+| security_audit_users_group_name | The name of the group to be created for security audit users | string | `security_auditors` | no |
 | sharedservices_account_id | The ID of the Shared Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | sharedservices_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account | string | `ProvisionAccount` | no |
 | tags | Tags to apply to all AWS resources Terraform Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |

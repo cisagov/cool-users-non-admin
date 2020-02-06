@@ -62,6 +62,12 @@ variable "dns_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the DNS account."
   default     = "ProvisionAccount"
 }
+
+variable "financial_audit_users_group_name" {
+  description = "The name of the group to be created for financial audit users."
+  default     = "financial_auditors"
+}
+
 variable "images_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Images account."
   default     = "ProvisionAccount"
@@ -75,6 +81,11 @@ variable "logarchive_provisionaccount_role_name" {
 variable "master_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Master account."
   default     = "ProvisionAccount"
+}
+
+variable "security_audit_users_group_name" {
+  description = "The name of the group to be created for security audit users."
+  default     = "security_auditors"
 }
 
 variable "sharedservices_provisionaccount_role_name" {
