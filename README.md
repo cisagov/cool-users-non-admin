@@ -21,6 +21,8 @@ TBD
 |------|-------------|:----:|:-------:|:--------:|
 | assume_master_financialaudit_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows access to the Billing policy in the Master account | string | `Allow assumption of the FinancialAudit role in the Master account` | no |
 | assume_master_financialaudit_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to the Billing policy in the Master account | string | `Master-AssumeFinancialAudit` | no |
+| assume_various_securityaudit_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows access to the SecurityAudit policy in the various accounts | string | `Allow assumption of the SecurityAudit role in various accounts` | no |
+| assume_various_securityaudit_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to the SecurityAudit policy in the various accounts | string | `Various-AssumeSecurityAudit` | no |
 | audit_account_id | The ID of the Audit account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | audit_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Audit account | string | `ProvisionAccount` | no |
 | aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
@@ -43,6 +45,8 @@ TBD
 | users | A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { 'firstname1.lastname1' = { 'roles' = [ 'financial_audit', 'security_audit' ] },  'firstname2.lastname2' = { 'roles' = [ 'security_audit' ] } } | map | | yes |
 | users_account_id | The ID of the Users account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | users_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Users account | string | `ProvisionAccount` | no |
+| various_securityaudit_role_description | The description to associate with the IAM role that allows access to the SecurityAudit policy in various AWS accounts | string | `Allows read-only access to resources for security auditors` | no |
+| various_securityaudit_role_name | The name to assign the IAM role that allows access to the SecurityAudit policy in various AWS accounts | string | `SecurityAudit` | no |
 
 ## Outputs ##
 

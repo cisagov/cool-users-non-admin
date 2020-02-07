@@ -58,6 +58,16 @@ variable "assume_master_financialaudit_policy_name" {
   default     = "Master-AssumeFinancialAudit"
 }
 
+variable "assume_various_securityaudit_policy_description" {
+  description = "The description to associate with the IAM policy that allows assumption of the role that allows access to the SecurityAudit policy in the various accounts."
+  default     = "Allow assumption of the SecurityAudit role in various accounts."
+}
+
+variable "assume_various_securityaudit_policy_name" {
+  description = "The name to assign the IAM policy that allows assumption of the role that allows access to the SecurityAudit policy in the various accounts."
+  default     = "Various-AssumeSecurityAudit"
+}
+
 variable "audit_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Audit account."
   default     = "ProvisionAccount"
@@ -127,4 +137,14 @@ variable "terraform_provisionaccount_role_name" {
 variable "users_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Users account."
   default     = "ProvisionAccount"
+}
+
+variable "various_securityaudit_role_description" {
+  description = "The description to associate with the IAM role that allows access to the SecurityAudit policy in various AWS accounts."
+  default     = "Allows read-only access to resources for security auditors."
+}
+
+variable "various_securityaudit_role_name" {
+  description = "The name to assign the IAM role that allows access to the SecurityAudit policy in various AWS accounts."
+  default     = "SecurityAudit"
 }
