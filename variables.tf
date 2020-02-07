@@ -34,7 +34,7 @@ variable "terraform_account_id" {
 
 variable "users" {
   # Currently-defined roles: financial_audit, security_audit
-  description = "A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { 'firstname1.lastname1' = { 'roles' = [ 'financial_audit', 'security_audit' ] },  'firstname2.lastname2' = { 'roles' = [ 'security_audit' ] } }"
+  description = "A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { \"firstname1.lastname1\" = { \"roles\" = [ \"financial_audit\", \"security_audit\" ] },  \"firstname2.lastname2\" = { \"roles\" = [ \"security_audit\" ] } }"
   type        = map
 }
 
