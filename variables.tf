@@ -48,6 +48,16 @@ variable "users_account_id" {
 # These parameters have reasonable defaults.
 # ------------------------------------------------------------------------------
 
+variable "assume_master_financialaudit_policy_description" {
+  description = "The description to associate with the IAM policy that allows assumption of the role that allows access to the Billing policy in the Master account."
+  default     = "Allow assumption of the FinancialAudit role in the Master account."
+}
+
+variable "assume_master_financialaudit_policy_name" {
+  description = "The name to assign the IAM policy that allows assumption of the role that allows access to the Billing policy in the Master account."
+  default     = "Master-AssumeFinancialAudit"
+}
+
 variable "audit_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Audit account."
   default     = "ProvisionAccount"
@@ -76,6 +86,16 @@ variable "images_provisionaccount_role_name" {
 variable "logarchive_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Log Archive account."
   default     = "ProvisionAccount"
+}
+
+variable "master_financialaudit_role_description" {
+  description = "The description to associate with the IAM role that allows access to the Billing policy in the Master account."
+  default     = "Allows sufficient access to billing information."
+}
+
+variable "master_financialaudit_role_name" {
+  description = "The name to assign the IAM role that allows access to the Billing policy in the Master account."
+  default     = "FinancialAudit"
 }
 
 variable "master_provisionaccount_role_name" {

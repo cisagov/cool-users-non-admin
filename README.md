@@ -19,6 +19,8 @@ TBD
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
+| assume_master_financialaudit_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows access to the Billing policy in the Master account | string | `Allow assumption of the FinancialAudit role in the Master account` | no |
+| assume_master_financialaudit_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to the Billing policy in the Master account | string | `Master-AssumeFinancialAudit` | no |
 | audit_account_id | The ID of the Audit account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | audit_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Audit account | string | `ProvisionAccount` | no |
 | aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
@@ -30,6 +32,8 @@ TBD
 | logarchive_account_id | The ID of the Log Archive account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | logarchive_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Log Archive account | string | `ProvisionAccount` | no |
 | master_account_id | The ID of the Master account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
+| master_financialaudit_role_description | The description to associate with the IAM role that allows access to the Billing policy in the Master account | string | `Allows sufficient access to billing information` | no |
+| master_financialaudit_role_name | The name to assign the IAM role that allows access to the Billing policy in the Master account | string | `FinancialAudit` | no |
 | master_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Master account | string | `ProvisionAccount` | no |
 | security_audit_users_group_name | The name of the group to be created for security audit users | string | `security_auditors` | no |
 | sharedservices_account_id | The ID of the Shared Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
