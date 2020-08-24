@@ -118,6 +118,16 @@ variable "security_audit_users_group_name" {
   default     = "security_auditors"
 }
 
+variable "securityauditextras_policy_description" {
+  description = "The description to associate with the IAM policy that gives access to additional permissions required by security auditors."
+  default     = "Allows access to additional resources required by security auditors."
+}
+
+variable "securityauditextras_policy_name" {
+  description = "The name to assign the IAM policy that gives access to additional permissions required by security auditors."
+  default     = "SecurityAuditExtras"
+}
+
 variable "sharedservices_provisionaccount_role_name" {
   description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account."
   default     = "ProvisionAccount"
