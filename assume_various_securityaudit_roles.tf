@@ -35,3 +35,9 @@ resource "aws_iam_group_policy_attachment" "securityaudit_policy_attachment" {
   group      = aws_iam_group.security_audit_users.name
   policy_arn = "arn:aws:iam::aws:policy/SecurityAudit"
 }
+
+# Attach our SecurityAuditExtras policy to the group
+resource "aws_iam_group_policy_attachment" "securityauditextras_policy_attachment" {
+  group      = aws_iam_group.security_audit_users.name
+  policy_arn = aws_iam_policy.users_securityauditextras_policy.arn
+}
