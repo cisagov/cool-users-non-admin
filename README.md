@@ -73,6 +73,8 @@ have been created and contain a ProvisionAccount role (ideally create via the
 | master_financialaudit_role_name | The name to assign the IAM role that allows access to the Billing policy in the Master account | string | `FinancialAudit` | no |
 | master_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Master account | string | `ProvisionAccount` | no |
 | security_audit_users_group_name | The name of the group to be created for security audit users | string | `security_auditors` | no |
+| securityauditextras_policy_description | The description to associate with the IAM policy that gives access to additional permissions required by security auditors | string | `Allows access to additional resources required by security auditors` | no |
+| securityauditextras_policy_name | The name to assign the IAM policy that gives access to additional permissions required by security auditors | string | `SecurityAuditExtras` | no |
 | sharedservices_account_id | The ID of the Shared Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
 | sharedservices_provisionaccount_role_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account | string | `ProvisionAccount` | no |
 | tags | Tags to apply to all AWS resources Terraform Services account, which contains a role that can be assumed to provision AWS resources in that account | string | | yes |
