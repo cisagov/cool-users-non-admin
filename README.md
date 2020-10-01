@@ -29,7 +29,7 @@ have been created and contain a ProvisionAccount role (ideally create via the
 1. Create a `<workspace_name>.tfvars` file with all of the required
    variables (see [Inputs](#Inputs) below for details):
 
-   ```console
+   ```hcl
    audit_account_id          = "111111111111"
    dns_account_id            = "222222222222"
    images_account_id         = "333333333333"
