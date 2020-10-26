@@ -55,20 +55,20 @@ have been created and contain a ProvisionAccount role (ideally create via the
 | Name | Version |
 |------|---------|
 | terraform | ~> 0.12.0 |
-| aws | ~> 2.0 |
+| aws | ~> 3.0 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.0 |
-| aws.audit | ~> 2.0 |
-| aws.dns | ~> 2.0 |
-| aws.images | ~> 2.0 |
-| aws.logarchive | ~> 2.0 |
-| aws.master | ~> 2.0 |
-| aws.sharedservices | ~> 2.0 |
-| aws.terraform | ~> 2.0 |
+| aws | ~> 3.0 |
+| aws.audit | ~> 3.0 |
+| aws.dns | ~> 3.0 |
+| aws.images | ~> 3.0 |
+| aws.logarchive | ~> 3.0 |
+| aws.master | ~> 3.0 |
+| aws.sharedservices | ~> 3.0 |
+| aws.terraform | ~> 3.0 |
 
 ## Inputs ##
 
@@ -117,7 +117,7 @@ contains Terraform code. In this repository, this is only the main directory.
 
 ## Contributing ##
 
-We welcome contributions!  Please see [here](CONTRIBUTING.md) for
+We welcome contributions!  Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
 details.
 
 ## License ##

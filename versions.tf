@@ -5,6 +5,6 @@ terraform {
   # Pin provider(s) to major version currently being used.
   # This helps us avoid unwelcome surprises.
   required_providers {
-    aws = "~> 2.0"
+    aws = "~> 3.0"
   }
 }
