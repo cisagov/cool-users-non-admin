@@ -21,11 +21,11 @@ policies to them.  We recommend creating your Users account via the
    variables (see [Inputs](#Inputs) below for details):
 
    ```hcl
-   users = {
-     "first1.last1"    = { "roles" = ["security_audit"] },
-     "first2.last2"    = { "roles" = ["financial_audit"] },
-     "first3.last3"    = { "roles" = ["financial_audit", "security_audit"] },
-   }
+   users = [
+     "firstname1.lastname1",
+     "firstname2.lastname2",
+     "firstname3.lastname3",
+   ]
    ```
 
 1. Run the command `terraform init`.
@@ -51,7 +51,7 @@ policies to them.  We recommend creating your Users account via the
 |------|-------------|------|---------|:--------:|
 | aws_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `us-east-1` | no |
 | tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
-| users | A map containing the usernames of each non-admin user and a list of roles assigned to that user.  Example: { "firstname1.lastname1" = { "roles" = [ "financial_audit", "security_audit" ] },  "firstname2.lastname2" = { "roles" = [ "security_audit" ] } } | `map` | n/a | yes |
+| users | A list containing the usernames of each non-admin user.  Example: [ "firstname1.lastname1", "firstname2.lastname2", "firstname3.lastname3" ] | `list` | n/a | yes |
 
 ## Outputs ##
 

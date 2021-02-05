@@ -1,6 +1,6 @@
 # The non-admin users being created
 resource "aws_iam_user" "users" {
-  for_each = var.users
+  for_each = toset(var.users)
 
   name = each.key
   tags = var.tags
@@ -10,7 +10,7 @@ resource "aws_iam_user" "users" {
 # accounts.  This policy is pretty much copied from here:
 # https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html
 data "aws_iam_policy_document" "iam_self_admin_doc" {
-  for_each = var.users
+  for_each = toset(var.users)
 
   # Allow users to view their own account information
   statement {
@@ -171,7 +171,7 @@ data "aws_iam_policy_document" "iam_self_admin_doc" {
 
 # The IAM self-administration policy for our IAM users
 resource "aws_iam_user_policy" "self_managed_creds_with_mfa" {
-  for_each = var.users
+  for_each = toset(var.users)
 
   name   = "SelfManagedCredsWithMFA"
   user   = each.key
