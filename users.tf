@@ -1,5 +1,7 @@
 # The non-admin users being created
 resource "aws_iam_user" "users" {
+  provider = aws.users
+
   for_each = toset(var.users)
 
   name = each.key
@@ -171,6 +173,8 @@ data "aws_iam_policy_document" "iam_self_admin_doc" {
 
 # The IAM self-administration policy for our IAM users
 resource "aws_iam_user_policy" "self_managed_creds_with_mfa" {
+  provider = aws.users
+
   for_each = toset(var.users)
 
   name   = "SelfManagedCredsWithMFA"

@@ -9,7 +9,7 @@ All admin users are set up in the
 
 ## Pre-Requisites ##
 
-Your default provider must have AWS permissions to create users and attach
+Your "users" provider must have AWS permissions to provision users and attach
 policies to them.  We recommend creating your Users account via the
 [`cool-accounts`](https://github.com/cisagov/cool-accounts) repository.
 
@@ -44,6 +44,8 @@ policies to them.  We recommend creating your Users account via the
 | Name | Version |
 |------|---------|
 | aws | ~> 3.0 |
+| aws.users | ~> 3.0 |
+| terraform | n/a |
 
 ## Inputs ##
 
