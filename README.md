@@ -7,7 +7,7 @@ All admin users are set up in the
 [`cool-accounts`](https://github.com/cisagov/cool-accounts) repository
 (in the [`users` subdirectory](https://github.com/cisagov/cool-accounts/users)).
 
-## Pre-Requisites ##
+## Pre-requisites ##
 
 Your "users" provider must have AWS permissions to provision users and attach
 policies to them.  We recommend creating your Users account via the
