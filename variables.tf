@@ -5,9 +5,9 @@
 # ------------------------------------------------------------------------------
 
 variable "users" {
+  type = list(string)
   # Currently-defined roles: financial_audit, security_audit
   description = "A list containing the usernames of each non-admin user.  Example: [ \"firstname1.lastname1\", \"firstname2.lastname2\", \"firstname3.lastname3\" ]"
-  type        = list
 }
 
 # ------------------------------------------------------------------------------
