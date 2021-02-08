@@ -2,7 +2,7 @@
 resource "aws_iam_user" "users" {
   provider = aws.users
 
-  for_each = toset(var.users)
+  for_each = toset(concat(var.users, var.non_self_admin_users))
 
   name = each.key
   tags = var.tags
