@@ -17,6 +17,7 @@ variable "users" {
 # ------------------------------------------------------------------------------
 
 variable "aws_region" {
+  type        = string
   description = "The AWS region where the non-global resources are to be provisioned (e.g. \"us-east-1\")."
   default     = "us-east-1"
 }
