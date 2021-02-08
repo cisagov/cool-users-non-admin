@@ -22,6 +22,12 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "non_self_admin_users" {
+  type        = list(string)
+  description = "A list containing the usernames of non-admin users that are not allowed to administer their own accounts.  Example: [ \"service-account1\", \"service-account2\", \"service-account3\" ]"
+  default     = []
+}
+
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to all AWS resources created"

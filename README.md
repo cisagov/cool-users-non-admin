@@ -52,6 +52,7 @@ policies to them.  We recommend creating your Users account via the
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | aws_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `us-east-1` | no |
+| non_self_admin_users | A list containing the usernames of non-admin users that are not allowed to administer their own accounts.  Example: [ "service-account1", "service-account2", "service-account3" ] | `list(string)` | `[]` | no |
 | tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
 | users | A list containing the usernames of each non-admin user.  Example: [ "firstname1.lastname1", "firstname2.lastname2", "firstname3.lastname3" ] | `list(string)` | n/a | yes |
 
