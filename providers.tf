@@ -1,47 +1,17 @@
-# Default provider is for the Users account
-provider "aws" {
-  region  = var.aws_region
-  profile = "cool-users-provisionaccount"
-}
+# This is the "default" provider that is used to obtain the caller's
+# credentials, which are used to set the session name when assuming roles in
+# the other providers.
 
 provider "aws" {
-  alias   = "audit"
-  profile = "cool-audit-provisionaccount"
-  region  = var.aws_region
+  region = var.aws_region
 }
 
+# The provider used to create resources inside the Users account.
 provider "aws" {
-  alias   = "dns"
-  profile = "cool-dns-provisionaccount"
-  region  = var.aws_region
-}
-
-provider "aws" {
-  alias   = "images"
-  profile = "cool-images-provisionaccount"
-  region  = var.aws_region
-}
-
-provider "aws" {
-  alias   = "logarchive"
-  profile = "cool-logarchive-provisionaccount"
-  region  = var.aws_region
-}
-
-provider "aws" {
-  alias   = "master"
-  profile = "cool-master-provisionaccount"
-  region  = var.aws_region
-}
-
-provider "aws" {
-  alias   = "sharedservices"
-  profile = "cool-sharedservices-provisionaccount"
-  region  = var.aws_region
-}
-
-provider "aws" {
-  alias   = "terraform"
-  profile = "cool-terraform-provisionaccount"
-  region  = var.aws_region
+  alias  = "users"
+  region = var.aws_region
+  assume_role {
+    role_arn     = data.terraform_remote_state.users.outputs.provisionaccount_role.arn
+    session_name = local.caller_user_name
+  }
 }
