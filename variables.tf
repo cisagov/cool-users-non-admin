@@ -6,7 +6,7 @@
 
 variable "users" {
   type        = map(map(string))
-  description = "A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attribtes.  The only currently-supported attribute is \"require_mfa\" (boolean).  Example: { \"firstname1.lastname1\" = { \"require_mfa\" = false }, \"firstname2.lastname2\" = { \"require_mfa\" = true }, \"firstname3.lastname3\" = { \"require_mfa\" = false } }"
+  description = "A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The only currently-supported attribute is \"require_mfa\" (boolean).  Example: { \"firstname1.lastname1\" = { \"require_mfa\" = false }, \"firstname2.lastname2\" = { \"require_mfa\" = true }, \"firstname3.lastname3\" = { \"require_mfa\" = false } }"
 }
 
 # ------------------------------------------------------------------------------
