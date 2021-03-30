@@ -5,9 +5,8 @@
 # ------------------------------------------------------------------------------
 
 variable "users" {
-  type = list(string)
-  # Currently-defined roles: financial_audit, security_audit
-  description = "A list containing the usernames of each non-admin user.  Example: [ \"firstname1.lastname1\", \"firstname2.lastname2\", \"firstname3.lastname3\" ]"
+  type        = map(map(string))
+  description = "A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The only currently-supported attribute is \"require_mfa\" (boolean).  Example: { \"firstname1.lastname1\" = { \"require_mfa\" = false }, \"firstname2.lastname2\" = { \"require_mfa\" = true }, \"firstname3.lastname3\" = { \"require_mfa\" = false } }"
 }
 
 # ------------------------------------------------------------------------------
