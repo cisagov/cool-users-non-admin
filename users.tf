@@ -5,7 +5,6 @@ resource "aws_iam_user" "users" {
   for_each = toset(concat(keys(var.users), var.non_self_admin_users))
 
   name = each.key
-  tags = var.tags
 }
 
 # Attach the self-administration (with MFA required) policy to each user
