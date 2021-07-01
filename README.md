@@ -37,28 +37,42 @@ policies to them.  We recommend creating your Users account via the
 | Name | Version |
 |------|---------|
 | terraform | ~> 0.12.0 |
-| aws | ~> 3.0 |
+| aws | ~> 3.38 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
-| aws.users | ~> 3.0 |
+| aws | ~> 3.38 |
+| aws.users | ~> 3.38 |
 | terraform | n/a |
+
+## Modules ##
+
+No modules.
+
+## Resources ##
+
+| Name | Type |
+|------|------|
+| [aws_iam_user.users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user_policy_attachment.self_managed_creds_with_mfa](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [aws_iam_user_policy_attachment.self_managed_creds_without_mfa](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [terraform_remote_state.users](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| aws_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `us-east-1` | no |
-| non_self_admin_users | A list containing the usernames of non-admin users that are not allowed to administer their own accounts.  Example: [ "service-account1", "service-account2", "service-account3" ] | `list(string)` | `[]` | no |
-| tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
-| users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The only currently-supported attribute is "require_mfa" (boolean).  Example: { "firstname1.lastname1" = { "require_mfa" = false }, "firstname2.lastname2" = { "require_mfa" = true }, "firstname3.lastname3" = { "require_mfa" = false } } | `map(map(string))` | n/a | yes |
+| aws\_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
+| non\_self\_admin\_users | A list containing the usernames of non-admin users that are not allowed to administer their own accounts.  Example: [ "service-account1", "service-account2", "service-account3" ] | `list(string)` | `[]` | no |
+| tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
+| users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The only currently-supported attribute is "require\_mfa" (boolean).  Example: { "firstname1.lastname1" = { "require\_mfa" = false }, "firstname2.lastname2" = { "require\_mfa" = true }, "firstname3.lastname3" = { "require\_mfa" = false } } | `map(map(string))` | n/a | yes |
 
 ## Outputs ##
 
-No output.
+No outputs.
 
 ## Notes ##
 
