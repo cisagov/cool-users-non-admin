@@ -12,6 +12,9 @@ resource "aws_iam_user" "users" {
 resource "aws_iam_user_policy_attachment" "self_managed_creds_with_mfa" {
   provider = aws.users
 
+  # Ensure that the user exists before attempting to attach the policy
+  depends_on = [aws_iam_user.users]
+
   for_each = { for k, v in var.users : k => v if v["require_mfa"] }
 
   user       = each.key
@@ -22,6 +25,9 @@ resource "aws_iam_user_policy_attachment" "self_managed_creds_with_mfa" {
 # where require_mfa is false
 resource "aws_iam_user_policy_attachment" "self_managed_creds_without_mfa" {
   provider = aws.users
+
+  # Ensure that the user exists before attempting to attach the policy
+  depends_on = [aws_iam_user.users]
 
   for_each = { for k, v in var.users : k => v if ! v["require_mfa"] }
 
