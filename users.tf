@@ -41,7 +41,7 @@ resource "aws_iam_user_policy_attachment" "self_managed_creds_without_mfa" {
   # created before _any_ policy attachments.
   depends_on = [aws_iam_user.users]
 
-  for_each = { for k, v in var.users : k => v if ! v["require_mfa"] }
+  for_each = { for k, v in var.users : k => v if !v["require_mfa"] }
 
   user       = each.key
   policy_arn = data.terraform_remote_state.users.outputs.selfmanagedcredswithoutmfa_policy.arn
