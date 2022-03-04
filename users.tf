@@ -2,7 +2,7 @@
 resource "aws_iam_user" "users" {
   provider = aws.users
 
-  for_each = toset(concat(keys(var.users), var.non_self_admin_users))
+  for_each = toset(keys(var.users))
 
   name = each.key
 }
@@ -21,7 +21,7 @@ resource "aws_iam_user_policy_attachment" "self_managed_creds_with_mfa" {
   # created before _any_ policy attachments.
   depends_on = [aws_iam_user.users]
 
-  for_each = { for k, v in var.users : k => v if v["require_mfa"] }
+  for_each = { for k, v in var.users : k => v if v["self_managed"] && v["require_mfa"] }
 
   user       = each.key
   policy_arn = data.terraform_remote_state.users.outputs.selfmanagedcredswithmfa_policy.arn
@@ -41,7 +41,7 @@ resource "aws_iam_user_policy_attachment" "self_managed_creds_without_mfa" {
   # created before _any_ policy attachments.
   depends_on = [aws_iam_user.users]
 
-  for_each = { for k, v in var.users : k => v if !v["require_mfa"] }
+  for_each = { for k, v in var.users : k => v if v["self_managed"] && !v["require_mfa"] }
 
   user       = each.key
   policy_arn = data.terraform_remote_state.users.outputs.selfmanagedcredswithoutmfa_policy.arn
