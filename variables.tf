@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 
 variable "users" {
-  type        = map(map(string))
+  type        = map(object({ require_mfa = bool, self_managed = bool }))
   description = "A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The currently-supported attributes are \"require_mfa\" (boolean) and \"self_managed\" (boolean).  Example: { \"firstname1.lastname1\" = { \"require_mfa\" = false, \"self_managed\" = true }, \"firstname2.lastname2\" = { \"require_mfa\" = true, \"self_managed\" = true }, \"firstname3.lastname3\" = { \"require_mfa\" = false, \"self_managed\" = true }, \"service-account1\" = { \"require_mfa\" = false, \"self_managed\" = false } }"
 }
 

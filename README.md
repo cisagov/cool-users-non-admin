@@ -68,7 +68,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | aws\_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
 | tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
-| users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The currently-supported attributes are "require\_mfa" (boolean) and "self\_managed" (boolean).  Example: { "firstname1.lastname1" = { "require\_mfa" = false, "self\_managed" = true }, "firstname2.lastname2" = { "require\_mfa" = true, "self\_managed" = true }, "firstname3.lastname3" = { "require\_mfa" = false, "self\_managed" = true }, "service-account1" = { "require\_mfa" = false, "self\_managed" = false } } | `map(map(string))` | n/a | yes |
+| users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The currently-supported attributes are "require\_mfa" (boolean) and "self\_managed" (boolean).  Example: { "firstname1.lastname1" = { "require\_mfa" = false, "self\_managed" = true }, "firstname2.lastname2" = { "require\_mfa" = true, "self\_managed" = true }, "firstname3.lastname3" = { "require\_mfa" = false, "self\_managed" = true }, "service-account1" = { "require\_mfa" = false, "self\_managed" = false } } | `map(object({ require_mfa = bool, self_managed = bool }))` | n/a | yes |
 
 ## Outputs ##
 
