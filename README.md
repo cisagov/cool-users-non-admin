@@ -21,11 +21,12 @@ policies to them.  We recommend creating your Users account via the
    variables (see [Inputs](#Inputs) below for details):
 
    ```hcl
-   users = [
-     "firstname1.lastname1",
-     "firstname2.lastname2",
-     "firstname3.lastname3",
-   ]
+   users = {
+     "firstname1.lastname1" = { "require_mfa" = false, "self_managed" = true },
+     "firstname2.lastname2" = { "require_mfa" = true, "self_managed" = true },
+     "firstname3.lastname3" = { "require_mfa" = false, "self_managed" = true },
+     "service-account1"     = { "require_mfa" = false, "self_managed" = false },
+   }
    ```
 
 1. Run the command `terraform init`.
