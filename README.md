@@ -21,11 +21,12 @@ policies to them.  We recommend creating your Users account via the
    variables (see [Inputs](#Inputs) below for details):
 
    ```hcl
-   users = [
-     "firstname1.lastname1",
-     "firstname2.lastname2",
-     "firstname3.lastname3",
-   ]
+   users = {
+     "firstname1.lastname1" = { "require_mfa" = false, "self_managed" = true },
+     "firstname2.lastname2" = { "require_mfa" = true, "self_managed" = true },
+     "firstname3.lastname3" = { "require_mfa" = false, "self_managed" = true },
+     "service-account1"     = { "require_mfa" = false, "self_managed" = false },
+   }
    ```
 
 1. Run the command `terraform init`.
@@ -66,9 +67,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | aws\_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
-| non\_self\_admin\_users | A list containing the usernames of non-admin users that are not allowed to administer their own accounts.  Example: [ "service-account1", "service-account2", "service-account3" ] | `list(string)` | `[]` | no |
 | tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
-| users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The only currently-supported attribute is "require\_mfa" (boolean).  Example: { "firstname1.lastname1" = { "require\_mfa" = false }, "firstname2.lastname2" = { "require\_mfa" = true }, "firstname3.lastname3" = { "require\_mfa" = false } } | `map(map(string))` | n/a | yes |
+| users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The currently-supported attributes are "require\_mfa" (boolean) and "self\_managed" (boolean).  Example: { "firstname1.lastname1" = { "require\_mfa" = false, "self\_managed" = true }, "firstname2.lastname2" = { "require\_mfa" = true, "self\_managed" = true }, "firstname3.lastname3" = { "require\_mfa" = false, "self\_managed" = true }, "service-account1" = { "require\_mfa" = false, "self\_managed" = false } } | `map(object({ require_mfa = bool, self_managed = bool }))` | n/a | yes |
 
 ## Outputs ##
 
