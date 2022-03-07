@@ -8,7 +8,7 @@ resource "aws_iam_user" "users" {
 }
 
 # Attach the self-administration (with MFA required) policy to each user
-# where require_mfa is true
+# where self_managed is true and require_mfa is true
 resource "aws_iam_user_policy_attachment" "self_managed_creds_with_mfa" {
   provider = aws.users
 
@@ -28,7 +28,7 @@ resource "aws_iam_user_policy_attachment" "self_managed_creds_with_mfa" {
 }
 
 # Attach the self-administration (without MFA required) policy to each user
-# where require_mfa is false
+# where self_managed is true and require_mfa is false
 resource "aws_iam_user_policy_attachment" "self_managed_creds_without_mfa" {
   provider = aws.users
 
