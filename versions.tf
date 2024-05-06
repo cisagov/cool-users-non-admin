@@ -1,9 +1,7 @@
 terraform {
-  # We want to hold off on 1.1 or higher until we have tested it.
-  required_version = "~> 1.0"
-
-  # Pin provider(s) to major version currently being used.
-  # This helps us avoid unwelcome surprises.
+  # If you use any other providers you should also pin them to the
+  # major version currently being used.  This practice will help us
+  # avoid unwelcome surprises.
   required_providers {
     # Version 4.9 of the Terraform AWS provider made changes to the S3 bucket
     # refactor that is in place for versions 4.0-4.8 of the provider. With v4.9
@@ -19,4 +17,7 @@ terraform {
       version = "~> 4.9"
     }
   }
+
+  # We want to hold off on 1.1 or higher until we have tested it.
+  required_version = "~> 1.0"
 }
