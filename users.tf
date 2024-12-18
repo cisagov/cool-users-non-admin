@@ -7,6 +7,27 @@ resource "aws_iam_user" "users" {
   name = each.key
 }
 
+# The login profile for each user; note that the user's initial console
+# password is set here, and the user is required to change it at first login.
+resource "aws_iam_user_login_profile" "users" {
+  provider = aws.users
+
+  for_each = toset(keys(var.users))
+
+  password_reset_required = true
+  user                    = aws_iam_user.users[each.key].name
+
+  lifecycle {
+    # Required so that Terraform doesn't reset the password if the user login
+    # profile was created outside of Terraform (password_length) or after the
+    # user has changed their initial password (password_reset_required).
+    ignore_changes = [
+      password_length,
+      password_reset_required
+    ]
+  }
+}
+
 # Attach the self-administration (with MFA required) policy to each user
 # where self_managed is true and require_mfa is true
 resource "aws_iam_user_policy_attachment" "self_managed_creds_with_mfa" {
