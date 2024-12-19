@@ -76,7 +76,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| initial\_passwords | The initial password for each user, which must be changed at first login. |
+| initial\_passwords | A map whose keys are the usernames of each non-admin user and whose values are the initial password (which must be changed at first login) for that user. |
 <!-- END_TF_DOCS -->
 
 ## Notes ##
