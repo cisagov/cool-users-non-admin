@@ -58,6 +58,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_iam_user.users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user_login_profile.users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_login_profile) | resource |
 | [aws_iam_user_policy_attachment.self_managed_creds_with_mfa](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
 | [aws_iam_user_policy_attachment.self_managed_creds_without_mfa](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
@@ -73,7 +74,9 @@ No modules.
 
 ## Outputs ##
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| initial\_passwords | A map whose keys are the usernames of each non-admin user and whose values are the initial password (which must be changed at first login) for that user. |
 <!-- END_TF_DOCS -->
 
 ## Notes ##
