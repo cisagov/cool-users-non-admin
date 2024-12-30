@@ -12,7 +12,8 @@ resource "aws_iam_user" "users" {
 resource "aws_iam_user_login_profile" "users" {
   provider = aws.users
 
-  for_each = toset(keys(var.users))
+  # for_each = toset(keys(var.users))
+  for_each = { for k, v in var.users : k => v if v["console_access"] }
 
   password_reset_required = true
   user                    = aws_iam_user.users[each.key].name
