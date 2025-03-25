@@ -8,13 +8,13 @@ data "terraform_remote_state" "users" {
   backend = "s3"
 
   config = {
-    encrypt        = true
-    bucket         = "cisa-cool-terraform-state"
+    bucket         = var.terraform_state_bucket
     dynamodb_table = "terraform-state-lock"
+    encrypt        = true
+    key            = "cool-accounts/users.tfstate"
     profile        = "cool-terraform-backend"
     region         = "us-east-1"
-    key            = "cool-accounts/users.tfstate"
   }
 
-  workspace = "production"
+  workspace = terraform.workspace
 }
