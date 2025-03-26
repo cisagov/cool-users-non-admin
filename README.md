@@ -70,6 +70,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | aws\_region | The AWS region where the non-global resources are to be provisioned (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
 | tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
+| terraform\_state\_bucket | The name of the S3 bucket where Terraform state is stored. | `string` | n/a | yes |
 | users | A map whose keys are the usernames of each non-admin user and whose values are a map containing supported user attributes.  The currently-supported attributes are "console\_access" (boolean), "require\_mfa" (boolean), and "self\_managed" (boolean).  Example: { "firstname1.lastname1" = { "console\_access" = true, "require\_mfa" = false, "self\_managed" = true }, "firstname2.lastname2" = { "console\_access" = true, "require\_mfa" = true, "self\_managed" = true }, "firstname3.lastname3" = { "console\_access" = false, "require\_mfa" = false, "self\_managed" = true }, "service-account1" = { "console\_access" = false, "require\_mfa" = false, "self\_managed" = false } } | `map(object({ console_access = bool, require_mfa = bool, self_managed = bool }))` | n/a | yes |
 
 ## Outputs ##
